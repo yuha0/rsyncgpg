@@ -1,0 +1,16 @@
+name: Build multi-arch container image
+
+on:
+  push:
+    branches:
+    - '*'
+    tags:
+    - 'v*'
+
+env:
+  GH_REPO: ${{ github.repository }}
+  IMAGE_REGISTRY: ghcr.io
+
+jobs:
+  docker:
+    uses: yuha0/action-docker-multiarch/.github/workflows/image.yml@main
